@@ -1,13 +1,27 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Blogs/Blog";
+import Courses from "../Courses/Courses";
 import Main from "../layout/Main";
-import Header from "../Shared/Header/Header";
+import Home from './../Home/Home';
+
+
 
 export const routes = createBrowserRouter([
     {
         path: '/', 
         element: <Main></Main>,
         children: [
-           
+          { path: '/', 
+           element: <Home></Home>
+        },
+        {
+            path: '/courses',
+            element:<Courses></Courses>
+        },
+        {
+            path: '/blog',
+            element: <Blog></Blog>
+        }
         ]
     }
 ])
