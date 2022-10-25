@@ -3,14 +3,15 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FaDashcube, FaDatabase } from "react-icons/fa";
 
 const Header = () => {
   return (
     <div>
       <Navbar bg="primary" expand="lg">
         <Container fluid>
-          <Navbar.Brand className="fw-bold fs-2 " href="#">
-            Educational Platform
+          <Navbar.Brand className="fw-bold fs-2 me-5 " href="#">
+            Educational Platform <FaDashcube></FaDashcube>
           </Navbar.Brand>
           <Navbar.Toggle  />
           <Navbar.Collapse>
