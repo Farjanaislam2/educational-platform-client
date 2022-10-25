@@ -1,24 +1,34 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Catergories from '../Categories/Catergories';
-import Details from '../Details/Details';
+import { useLoaderData } from 'react-router-dom';
+import AllCourses from '../AllCourses/AllCourses';
+
 
 const Courses = () => {
+    const courses= useLoaderData();
+    
     return (
        <div>
-        <h1>Welcome To Our Web Development Courses</h1>
+        
         <Container>
-            <Row>
+            <Row>  
                 <Col lg='3'>
                 <Catergories></Catergories>
                 </Col>
                 <Col lg='7'>
-                <Details></Details>
-                </Col>
-                <Col lg='2'>
-                <button>Get Premium Access</button>
-                </Col>
+                <h1 className='text-center'>Welcome To Our Web Development Courses</h1>
+                <button className='m-5'>Get Premium Access</button>
+                    <h4>all data :{courses.length}</h4>
+                    {
+                        courses.map(course => <AllCourses
+                            key={courses._id}
+                            course={course}>
 
+                            </AllCourses>)
+                    }
+               
+                </Col>
             </Row>
         </Container>
        </div>

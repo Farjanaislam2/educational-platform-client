@@ -13,9 +13,12 @@ const Catergories = () => {
       <p>this is categories: {catergories.length}</p>
       {catergories.map((category) => (
         <p key={category.id}>
-          <Link to={`/category/${category.id}`}>{category.title}</Link>
+          <Link to={`/details/${category.id}`}>{category.title}</Link>
+          
         </p>
+       
       ))}
+
     </div>
   );
 };

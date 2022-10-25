@@ -5,6 +5,7 @@ import Main from "../layout/Main";
 import Home from './../Home/Home';
 import Catergories from './../Categories/Catergories';
 import Details from "../Details/Details";
+import Course from './../Course/Course';
 
 
 
@@ -18,8 +19,15 @@ export const routes = createBrowserRouter([
         },
         {
             path: '/courses',
-            element:<Courses></Courses>
+            element:<Courses></Courses>,
+            loader: () => fetch(`http://localhost:5000/details`)
         },
+        {
+            path: '/course/:id',
+            element:<Course></Course>,
+            loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+        },
+
         {
             path: '/blog',
             element: <Blog></Blog>
@@ -27,11 +35,8 @@ export const routes = createBrowserRouter([
         {
             path:'/category/:id',
             element: <Catergories></Catergories>
-        },
-        {
-            path: '/details',
-            element: <Details></Details>
         }
+       
         ]
     }
 ])
