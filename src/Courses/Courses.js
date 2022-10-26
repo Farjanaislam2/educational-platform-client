@@ -7,7 +7,7 @@ import AllCourses from '../AllCourses/AllCourses';
 
 const Courses = () => {
     const courses= useLoaderData();
-    
+    // console.log(courses)
     return (
        <div>
         
@@ -18,7 +18,7 @@ const Courses = () => {
                 </Col>
                 <Col lg='7'>
                 <h1 className='text-center'>Welcome To Our Web Development Courses</h1>
-                <button className='m-5'>Get Premium Access</button>
+               
                     <h4>all data :{courses.length}</h4>
                     {
                         courses.map(course => <AllCourses

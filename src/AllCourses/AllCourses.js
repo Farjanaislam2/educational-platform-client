@@ -14,15 +14,10 @@ const AllCourses = ({ course }) => {
       <Card.Img variant="top" src={picture} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>
-        {
-             about.length > 100 ?
-             <p>{about.slice(0,100) + '...'} <Link to={`/course/${_id}`}>Read More</Link></p>
-             :
-             <p>{about}</p>
-        }
-        </Card.Text>
-        
+
+       <button>
+       <Link to={`/course/${_id}`}>Get premium Access</Link>
+       </button>
       </Card.Body>
     </Card>
        </div>

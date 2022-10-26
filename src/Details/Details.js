@@ -7,7 +7,7 @@ const Details = () => {
        
       return (
         <div>
-            <h1> all course details:${
+            <h1> all course details:${course.length
             }</h1>
         </div>
     );

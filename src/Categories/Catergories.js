@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Catergories = () => {
+
   const [catergories, setCategories] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/course-details")
@@ -13,7 +14,7 @@ const Catergories = () => {
       <p>this is categories: {catergories.length}</p>
       {catergories.map((category) => (
         <p key={category.id}>
-          <Link to={`/details/${category.id}`}>{category.title}</Link>
+          <Link to={`/categorise/${category.id}`}>{category.title}</Link>
           
         </p>
        
