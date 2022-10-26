@@ -7,6 +7,7 @@ import Catergories from './../Categories/Catergories';
 import Details from "../Details/Details";
 import Course from './../Course/Course';
 import Login from "../Login/Login";
+import Register from './../Login/Register';
 
 
 
@@ -47,6 +48,10 @@ export const routes = createBrowserRouter([
         {
             path:'/login',
             element: <Login></Login>
+        },
+        {
+            path:'/Register',
+            element: <Register></Register>
         }
 
        

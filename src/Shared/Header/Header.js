@@ -6,9 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import { FaDashcube, FaDatabase, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import Button from 'react-bootstrap/Button';
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
+
+  const handleLogOut =()=>{
+    logOut()
+    .then( () =>{})
+    .catch(error => console.error(error))
+  }
   return (
     <div>
       <Navbar bg="primary" expand="lg">
@@ -27,38 +34,36 @@ const Header = () => {
               <Nav.Link href="/blog">Blog</Nav.Link>
               <Nav.Link href="#action2">Toggle Theme</Nav.Link>
             </Nav>
-            <Nav className="justify-content-end" activeKey="/home">
+            <Nav className="justify-content-center" activeKey="/home">
               <Nav.Item>
-                <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+                <Nav.Link className="bg-light" to="">
+                  {user ? 
+                    <>
+                      <span> {user?.displayName}</span>
+                      <Button onClick={handleLogOut} variant="light">Log out</Button>
+                    </>
+                   : 
+                    <>
+                      <Link to="/login">Login</Link>
+                      <Link to="/register">Register</Link>
+                    </>
+                  }
+                </Nav.Link>
 
-              
-                <Nav.Link eventKey={2} href="#deets">
-                  {user.photoURL ? 
+                <Nav.Link href="#deets">
+                  {user ? (
                     <Image
                       style={{ height: "30px" }}
                       roundedCircle
                       src={user.photoURL}
                     ></Image>
-                   :
-                    
+                  ) : (
                     <FaUser></FaUser>
-                  }
-                </Nav.Link>
-                <Nav.Link href="#deets">
-                
-                    {
-                    <>
-                      <Link className="bg-light p-2 rounded" to="/login">
-                        Login
-                      </Link>
-                      <Link className="bg-light p-2 rounded" to="/register">
-                        Register
-                      </Link>
-                    </>
-                  }
-                </Nav.Link>
+                  )}
+              </Nav.Link>
               </Nav.Item>
             </Nav>
+            
           </Navbar.Collapse>
         </Container>
       </Navbar>
