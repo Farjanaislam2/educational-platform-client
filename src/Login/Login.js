@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   const handleGithubSignIn=() =>{
-    signInWithPopup(githubProvider)
+    providerLogin(githubProvider)
     .then((result) => {
       const user = result.user
       console.log(user)
