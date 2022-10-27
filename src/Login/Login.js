@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "./../context/AuthProvider/AuthProvider";
 import Button from "react-bootstrap/Button";
@@ -19,6 +19,7 @@ const Login = () => {
 
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider =new GithubAuthProvider();
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
@@ -27,8 +28,20 @@ const Login = () => {
         console.log(user);
       })
 
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
   };
+
+  const handleGithubSignIn=() =>{
+    signInWithPopup(githubProvider)
+    .then((result) => {
+      const user = result.user
+      console.log(user)
+    })
+
+    .catch((error) => console.error(error));
+  }
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -72,7 +85,7 @@ const Login = () => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="outline-primary" type="submit">
             Login
           </Button>
           <Form.Text className="text-danger">
@@ -81,12 +94,12 @@ const Login = () => {
         </Form>
       </div>
 
-      <div>
+      <div className="mt-5">
         <ButtonGroup vertical>
-          <Button onClick={handleGoogleSignIn} variant="primary">
+          <Button onClick={handleGoogleSignIn} variant="outline-primary">
             <FaGoogle></FaGoogle> Login with Google
           </Button>
-          <Button variant="primary">
+          <Button onClick={handleGithubSignIn} className="mt-2" variant="outline-primary">
             <FaGithub></FaGithub> Login with Github
           </Button>
         </ButtonGroup>

@@ -19,7 +19,7 @@ const Courses = () => {
                 <Col lg='7'>
                 <h1 className='text-center'>Welcome To Our Web Development Courses</h1>
                
-                    <h4>all data :{courses.length}</h4>
+                    <h4>All Courses:{courses.length}</h4>
                     {
                         courses.map(course => <AllCourses
                             key={courses._id}
