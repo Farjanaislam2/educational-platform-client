@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 
 const Login = () => {
 
-  const { providerLogin } = useContext(AuthContext);
+  const { providerLogin,signIn } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -27,19 +27,30 @@ const Login = () => {
 
   };
 
+
+  const handleSubmit =event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email,password);
+
+
+  }
+
   
   return (
     <div className="m-5 p-5">
       <div >
-      <Form>
+      <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" name="email" placeholder="Enter email" required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="password" name="password" placeholder="Password" required/>
       </Form.Group>
     
       <Button variant="primary" type="submit">
