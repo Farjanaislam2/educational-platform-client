@@ -7,6 +7,7 @@ import { FaDashcube, FaDatabase, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import Button from 'react-bootstrap/Button';
+import Theme from "../Theme/Theme";
 
 const Header = () => {
   const { user,logOut } = useContext(AuthContext);
@@ -62,6 +63,7 @@ const Header = () => {
                   )}
               </Nav.Link>
               </Nav.Item>
+              
             </Nav>
             
           </Navbar.Collapse>
