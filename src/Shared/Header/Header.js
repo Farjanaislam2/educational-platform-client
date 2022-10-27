@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import Button from 'react-bootstrap/Button';
 import Theme from "../Theme/Theme";
+import ReactTooltip from 'react-tooltip';
 
 const Header = () => {
   const { user,logOut } = useContext(AuthContext);
@@ -59,7 +60,11 @@ const Header = () => {
                       src={user.photoURL}
                     ></Image>
                   ) : (
-                    <FaUser></FaUser>
+                    
+                        <FaUser></FaUser>
+
+                      
+                    
                   )}
               </Nav.Link>
               </Nav.Item>

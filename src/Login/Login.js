@@ -6,13 +6,17 @@ import { useContext } from "react";
 import { AuthContext } from "./../context/AuthProvider/AuthProvider";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
   const [error, setError] =useState('')
   const { providerLogin, signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location =useLocation();
+
+  const from = location.state?.from?.pathname || '/';
+
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -36,7 +40,7 @@ const Login = () => {
       console.log(user);
       form.reset();
       setError('')
-      navigate('/')
+      navigate(from , {replace: true});
     })
     .catch(error =>{
       console.error(error)
