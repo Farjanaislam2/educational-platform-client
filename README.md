@@ -1,6 +1,6 @@
 # Educational Platform
 
-Live link: [Create React App](https://github.com/facebook/create-react-app).
+Live link: [Create React App](https://educational-platform-1b2b4.web.app/).
 
 ## Description About this website
 

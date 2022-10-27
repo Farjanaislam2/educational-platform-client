@@ -34,11 +34,7 @@ const Header = () => {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/courses">Courses</Nav.Link>
               <Nav.Link href="/blog">Blog</Nav.Link>
-              <Nav.Link href="#action2">Toggle Theme</Nav.Link>
-            </Nav>
-            <Nav className="justify-content-center" activeKey="/home">
-              <Nav.Item>
-                <Nav.Link className="bg-light" to="">
+              <Nav.Link className="bg-light" to="">
                   {user ? 
                     <>
                       <span> {user?.displayName}</span>
@@ -46,12 +42,15 @@ const Header = () => {
                     </>
                    : 
                     <>
-                      <Link to="/login">Login</Link>
+                      <Link className="me-3" to="/login">Login</Link>
                       <Link to="/register">Register</Link>
                     </>
                   }
                 </Nav.Link>
-
+                <Nav.Link href="#action2">Toggle Theme</Nav.Link>
+            </Nav>
+            <Nav className="justify-content-center" activeKey="/home">
+              <Nav.Item>
                 <Nav.Link href="#deets">
                   {user ? (
                     <Image
@@ -63,8 +62,6 @@ const Header = () => {
                     
                         <FaUser></FaUser>
 
-                      
-                    
                   )}
               </Nav.Link>
               </Nav.Item>

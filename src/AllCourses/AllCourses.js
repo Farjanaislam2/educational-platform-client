@@ -8,8 +8,8 @@ const AllCourses = ({ course }) => {
   //console.log(course);
 
   return (
-    <div  className="container ">
-       <div className="mb-5 d-lg-3 col-sm-1">
+
+      
        <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={picture} />
       <Card.Body>
@@ -20,8 +20,8 @@ const AllCourses = ({ course }) => {
        </button>
       </Card.Body>
     </Card>
-       </div>
-    </div>
+      
+    
   );
 };
 

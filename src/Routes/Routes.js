@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Link } from "react-router-dom";
 import Blog from "../Blogs/Blog";
 import Courses from "../Courses/Courses";
 import Main from "../layout/Main";
@@ -23,14 +23,14 @@ export const routes = createBrowserRouter([
         {
             path: '/courses',
             element:<Courses></Courses>,
-            loader: () => fetch(`http://localhost:5000/details`)
+            loader: () => fetch(`https://educational-website-server-site.vercel.app/details`)
         },
         {
             path: '/course/:id',
             element: <PrivateRoute>
                 <Course></Course>
                 </PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+            loader: ({params}) => fetch(`https://educational-website-server-site.vercel.app/details/${params.id}`)
         },
 
         {
@@ -45,7 +45,7 @@ export const routes = createBrowserRouter([
         {
             path:'/categorise/:id',
             element: <Courses></Courses>,
-            loader: ({params}) => fetch(`http://localhost:5000/categorise/${params.id}`)
+            loader: ({params}) => fetch(`https://educational-website-server-site.vercel.app/categorise/${params.id}`)
         },
 
         {
@@ -56,8 +56,14 @@ export const routes = createBrowserRouter([
             path:'/Register',
             element: <Register></Register>
         },
-        
+        {
+            path: '*',
+            element: <div>
+                <h1>Page not found</h1>
+                <Link to='/'>Go To Home</Link>
 
+            </div>
+        }
        
         ]
     }
