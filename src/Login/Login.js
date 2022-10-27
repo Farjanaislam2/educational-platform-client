@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -6,9 +6,13 @@ import { useContext } from "react";
 import { AuthContext } from "./../context/AuthProvider/AuthProvider";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+  const [error, setError] =useState('')
   const { providerLogin, signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -31,7 +35,13 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       form.reset();
-    });
+      setError('')
+      navigate('/')
+    })
+    .catch(error =>{
+      console.error(error)
+      setError(error.message);
+    })
   };
 
   return (
@@ -61,6 +71,9 @@ const Login = () => {
           <Button variant="primary" type="submit">
             Login
           </Button>
+          <Form.Text className="text-danger">
+            {error}
+          </Form.Text>
         </Form>
       </div>
 
