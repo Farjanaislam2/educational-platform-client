@@ -38,12 +38,12 @@ const Header = () => {
                   {user ? 
                     <>
                       <span> {user?.displayName}</span>
-                      <Button onClick={handleLogOut} variant="primary" style={{color: 'black'}} className='mb-5'>Log out</Button>
+                      <Button onClick={handleLogOut} variant="primary" style={{color: 'black'}}>Log out</Button>
                     </>
                    : 
                     <>
-                      <Link className="me-3" to="/login">Login</Link>
-                      <Link to="/register">Register</Link>
+                      <Link className="me-3 text-dark" to="/login">Login</Link>
+                      <Link className="text-dark" to="/register">Register</Link>
                     </>
                   }
                 </Nav.Link>
