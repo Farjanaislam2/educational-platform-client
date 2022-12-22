@@ -34,11 +34,11 @@ const Header = () => {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/courses">Courses</Nav.Link>
               <Nav.Link href="/blog">Blog</Nav.Link>
-              <Nav.Link className="bg-light" to="">
+              <Nav.Link  to="">
                   {user ? 
                     <>
                       <span> {user?.displayName}</span>
-                      <Button onClick={handleLogOut} variant="light">Log out</Button>
+                      <Button onClick={handleLogOut} variant="primary" style={{color: 'black'}} className='mb-5'>Log out</Button>
                     </>
                    : 
                     <>
@@ -47,7 +47,7 @@ const Header = () => {
                     </>
                   }
                 </Nav.Link>
-                <Nav.Link href="#action2">Toggle Theme</Nav.Link>
+               
             </Nav>
             <Nav className="justify-content-center" activeKey="/home">
               <Nav.Item>
